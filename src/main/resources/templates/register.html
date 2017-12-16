@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/footer.css" />
+<title>Add user</title>
+</head>
+<body>
+
+ 
+<nav class="navbar navbar-inverse">
+					<ul class="nav navbar-nav"> 
+							<li><a href="/">Home</a></li>
+						<li><a href="register">Rejestracja</a></li> 
+						     <li><a href="login">Logowanie</a></li> 
+					</ul>
+
+	<div class="imagese"><img th:src="@{/images/banner.png}" > </div>
+<div class="loggedIn">User logged in as :  </div>
+</nav>
+
+
+
+	<div class="container">
+
+		<h1 style="text-align: center"><strong class="firstLetter">D</strong>odaj użytkownika:</h1>
+	
+       	<form action="#" th:action="@{/createUser}" th:object="${user}" method="post">
+		<table class="table">
+		
+			<tr>
+			      
+				   <td style="text-align:center">  Email  <input class="form-control form-group" type="text" th:field="*{email}" /></td>
+			</tr>
+			
+		    <tr>
+			
+			     <td class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error </td>
+			     <td class="alert alert-danger" th:if="${message_email_exist != null}" th:text="${message_email_exist}">Error Email If Exist </td>
+			</tr>
+			
+			<tr>
+				   <td style="text-align:center"> Imię <input  class="form-control form-group" type="text" th:field="*{name}"/></td>
+			</tr>
+			
+			<tr>
+	             	 <td class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td> 
+			</tr>
+			
+			<tr>
+			
+			 <td style="text-align:center"> Hasło <input class="form-control form-group" type="password" th:field="*{password}"/> </td>
+			 
+			</tr>
+			
+			<tr>
+			
+ 			<td class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td> 	
+ 					 
+			</tr>
+			
+			<tr>
+			
+			 <td style="text-align:center"> Powtórz Hasło <input class="form-control form-group" type="password" name="passwordCheck" /> </td>
+			 
+			</tr>
+			
+		    <tr>
+			
+ 			<td class="alert alert-danger" th:if="${passwordMessage != null}"  th:text="${passwordMessage}"></td> 	
+ 					 
+			</tr>
+			
+			<!--tr>
+				   <td style="text-align:center"> Aktywność <input class="form-control form-group" type="checkbox" th:field="*{active}"/></td>
+			</tr-->
+		
+		
+			
+			<tr>
+				   <td style="text-align:center"> 
+				   
+				   Jedzenie:
+		
+				<select class="form-control form-group selectpicker" th:field="*{likeToEat}">
+ 				 <option  th:each="feat : ${lista}"  th:value="${feat.name}" th:text="${feat.name}"> </option>
+   				</select>
+              
+				       
+				       </td>
+			</tr>
+			
+				<tr>
+					<td><button class="btn btn-primary form-group form-control">Dodaj</button> </td>
+			</tr>
+		
+			
+					<tr>
+					<td th:if="${message != null}" th:text="${message}" class="alert alert-success" style="text-align:center"> </td>
+					<td th:if="${message_failed != null}" th:text="${message_failed}" class="alert alert-danger"> </td>
+				
+			</tr>
+				
+				</table>
+				</form>
+				
+
+
+
+	</div>
+
+				
+
+
+<footer class="footer">
+             <div class="footerContainer">
+                                      <p>Created to obtain new skills and experience</p>
+            </div>
+
+</footer>
+
+
+
+
+
+</body>
+</html>

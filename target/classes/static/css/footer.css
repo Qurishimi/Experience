@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-style: italic;
+  background-color:#f1f7e8;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  color: #ffffff;
+  background-color: #000000;
+
+}
+
+.imagese{
+   position: absolute;
+   padding:5px;
+     left:700px;
+ 
+}
+
+.imagese img{
+	width: 500px;
+    height: 40px;
+}
+
+
+.logo-icon{
+	background-image: url("flame.jpg");
+	
+}
+
+.navbar-inverse{
+		
+	
+}
+
+
+.loggedIn{
+
+	text-align:right;
+	color:white;
+	padding:10px;
+	
+}
+
+
+.firstLetter{
+	background-color: #74c463;
+	color:white;
+	left:1600px;
+	
+}
+
+.footerContainer {
+       text-align:center;
+       padding:10px;
+}
+
+
+.container{
+	width: 600px;
+    float:right;
+    margin-right:700px;
+    
+}
+
+
+.btn-primary {
+	
+	background-color: #74c463;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  color: #ffffff !important;
+  background-color: #008000!important;
+  border-color: #494F57 !important;
+}
+
+.btn-primary:active:focus{
+	background-color: #008000;
+}
+
+.sidebar{
+	color:green;
+	float:left;
+    height:100%;
+    background-color: black;
+    position: absolute;
+}
+
