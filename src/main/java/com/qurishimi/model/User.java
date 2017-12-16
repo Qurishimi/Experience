@@ -1,10 +1,9 @@
 package com.qurishimi.model;
 
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;

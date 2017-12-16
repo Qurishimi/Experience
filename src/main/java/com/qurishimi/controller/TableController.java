@@ -30,6 +30,8 @@ public class TableController {
 		
 		User user =  userDao.findOne(Integer.parseInt(id));
 		
+		
+		
 		System.out.println(user.getUserDetails().getAge());
 		model.addAttribute("user", user);
 		

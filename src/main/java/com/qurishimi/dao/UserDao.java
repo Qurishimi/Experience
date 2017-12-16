@@ -13,7 +13,6 @@ public interface UserDao extends CrudRepository<User, Integer> {
 
 	List<User> findByEmail(String email);
 	
-	
-	
+	public List<User> findAll();
 	
 }
