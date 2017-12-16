@@ -23,14 +23,9 @@ public class Role {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
 	
 	
-	public Role(int id, String role) {
-		super();
-		this.id = id;
-		this.role = role;
-	}
-	
-	
+
 	
 }

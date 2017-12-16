@@ -34,8 +34,8 @@ public class User {
     @JoinTable(name="user_role", joinColumns= @JoinColumn(name= "user_id") , inverseJoinColumns= @JoinColumn(name= "id") ) 
     Set<Role> role;
 	
-    @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name="id" )
+   @OneToOne(cascade= CascadeType.ALL)
+   @JoinColumn(name="id" )
     UserDetails userDetails;
 	
     

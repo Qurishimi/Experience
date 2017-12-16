@@ -1,12 +1,16 @@
 package com.qurishimi.services;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.qurishimi.dao.RoleDao;
 import com.qurishimi.dao.UserDao;
 import com.qurishimi.dao.UserDetailsDao;
+import com.qurishimi.model.Role;
 import com.qurishimi.model.User;
 import com.qurishimi.model.UserDetails;
 
@@ -19,11 +23,18 @@ public class UserService {
 	@Autowired
 	UserDetailsDao userDetailsDao;
 	
+	@Autowired
+	RoleDao roleDao;
+	
 	public boolean addUser(User user){
 		
 		UserDetails userDetails = new UserDetails();
+       
+		
+		user.setRole(new HashSet<Role>(Arrays.asList( roleDao.findOne(2))));
 		
 		userDetailsDao.save(userDetails);
+		user.setUserDetails(userDetails);
 		
 		return userDao.save(user) != null;
 		
