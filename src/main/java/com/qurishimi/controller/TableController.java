@@ -1,38 +1,43 @@
 package com.qurishimi.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.qurishimi.dao.UserDao;
 import com.qurishimi.model.User;
-import com.qurishimi.services.UserService;
 
 @Controller
-public class HomeController {
+public class TableController {
 
+	
 	@Autowired
 	UserDao userDao;
 	
-	
-
-	
-	@RequestMapping("/")
-	public String welcome(  Model model) {
+	@RequestMapping(value="tablica")
+	public String getTablica(String id) {
 		
-		return "home";
+	
+		
+		return "UserDetails";
 	}
+	
+	
+	@RequestMapping(value="getUserById", method= RequestMethod.POST )
+	public String getUserById(String id, Model model) {
+		
+		User user =  userDao.findOne(Integer.parseInt(id));
+		
+		System.out.println(user.getUserDetails().getAge());
+		model.addAttribute("user", user);
+		
+		
+		return "UserDetails";
+	}
+	
+	
 	
 	
 }
