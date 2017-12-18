@@ -72,8 +72,9 @@ public class Register {
 			
 		}
 	
+	//	userService.addCar(3);
 		userService.addUser(user);
-		
+		userService.addCar(user.getId());
 	    System.out.println(user);
 		
 	    model.addAttribute("message", "Użytkownik został dodany pomyślnie jako:" + user);

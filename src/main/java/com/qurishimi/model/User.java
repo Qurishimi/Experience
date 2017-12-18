@@ -1,14 +1,16 @@
 package com.qurishimi.model;
 
+
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class User {
@@ -38,10 +40,20 @@ public class User {
    @JoinColumn(name="id" )
     UserDetails userDetails;
 	
-    
+   @OneToMany(mappedBy="user")
+   @JsonManagedReference
+    List<Car> car;
     
 	public UserDetails getUserDetails() {
 		return userDetails;
+	}
+
+	public List<Car> getCar() {
+		return car;
+	}
+
+	public void setCar(List<Car> car) {
+		this.car = car;
 	}
 
 	public void setUserDetails(UserDetails userDetails) {
